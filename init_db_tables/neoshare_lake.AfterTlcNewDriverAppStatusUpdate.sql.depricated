@@ -1,0 +1,7 @@
+
+CREATE TRIGGER neoshare_lake.AfterTlcNewDriverAppStatusUpdate
+AFTER UPDATE ON neoshare_lake.tlc_new_driver_application_status
+FOR EACH ROW
+BEGIN
+    CALL neoshare_mart_v.RefreshFactLicensesMonthly();
+END 
